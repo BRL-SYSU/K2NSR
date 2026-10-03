@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "author": "HongyiFang",
+    "date": "2025-12-11"
+  },
+  "model": {
+    "reconstructor": {
+      "scales": [
+        {
+          "patch_size": 1,
+          "width": 384,
+          "layers": 4,
+          "heads": 8
+        },
+        {
+          "patch_size": 2,
+          "width": 448,
+          "layers": 6,
+          "heads": 8
+        },
+        {
+          "patch_size": 3,
+          "width": 768,
+          "layers": 7,
+          "heads": 8
+        },
+        {
+          "patch_size": 4,
+          "width": 864,
+          "layers": 8,
+          "heads": 8
+        },
+        {
+          "patch_size": 6,
+          "width": 1728,
+          "layers": 9,
+          "heads": 16
+        }
+      ],
+      "channels": 32,
+      "latent_size": 32,
+      "feature_channels": [
+        128,
+        256
+      ],
+      "mlp_ratio": 4.0,
+      "dropout": 0.1,
+      "input_residual_init": 0.1,
+      "feature_residual_init": 0.1,
+      "residual_per_scale": true
+    },
+    "encoder": {
+      "train_input_conv": true,
+      "train_down_levels": [
+        0
+      ],
+      "train_norm_affine": true,
+      "train_mid": false,
+      "train_quant_conv": false
+    },
+    "patch_sizes": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      9,
+      13,
+      18,
+      24,
+      32
+    ],
+    "vocabulary_size": 4096,
+    "vae_channels": 160,
+    "shared_quant_residuals": 4
+  },
+  "loss": {
+    "reconstruction_weight": 1.0,
+    "codebook_weight": 0.001,
+    "accumulation_weight": 0.2,
+    "huber_delta": 1.0,
+    "logit_scale": 20.0,
+    "normalize_codebook": false
+  },
+  "training": {
+    "epochs": 40,
+    "batch_size": 80,
+    "workers": 8,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0,
+    "grad_clip": 1.0,
+    "precision": "fp32",
+    "degradation": "realesrgan",
+    "seed": 42,
+    "log_every": 50,
+    "save_every_epochs": 1
+  },
+  "generation": {
+    "num_prefill_scales": 3,
+    "quantize_prefix": true,
+    "cfg": 9.0,
+    "top_k": 1,
+    "top_p": 0.75,
+    "seed": 42,
+    "refine": true
+  }
+}
