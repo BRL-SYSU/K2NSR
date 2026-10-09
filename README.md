@@ -55,7 +55,7 @@ Pretrained VARSR and VQVAE checkpoints can be downloaded from
 | --- | --- | --- |
 | `checkpoints/VQVAE.pth` | VAE tokenizer, shared codebook, and decoder | [VQVAE.pth](https://huggingface.co/qyp2000/VARSR/resolve/main/VQVAE.pth) |
 | `checkpoints/VARSR.pth` | Pretrained autoregressive SR backbone | [VARSR.pth](https://huggingface.co/qyp2000/VARSR/resolve/main/VARSR.pth) |
-| `checkpoints/k2nsr.pth` | Parallel Reconstructor and adapted LR encoder | Coming soon |
+| `checkpoints/k2nsr.pth` | Parallel Reconstructor and adapted LR encoder | [K2NSR.pth](https://huggingface.co/muzeerec/K2N/tree/main/K2NSR.pth) |
 
 ## Environment
 
